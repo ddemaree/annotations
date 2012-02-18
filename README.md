@@ -99,6 +99,7 @@ end
 * Color output
 * Standalone command-line tool (e.g. `annotations wtf todo --color`)
 * More robust handling of different extensions/comment formats, plus the ability to easily add in new ones
+* Test coverage!!
 
 ## Contributing
 
