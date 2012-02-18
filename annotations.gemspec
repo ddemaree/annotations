@@ -4,9 +4,9 @@ require File.expand_path('../lib/annotations/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.authors       = ["David Demaree"]
   gem.email         = ["ddemaree@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.description   = %q{Source code annotations, extracted from Rails.}
+  gem.summary       = %q{Extracts and displays tagged annotations from your source code.}
+  gem.homepage      = "http://github.com/ddemaree/annotations"
 
   gem.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   gem.files         = `git ls-files`.split("\n")
