@@ -10,7 +10,7 @@ module Annotations
     def initialize(name = :notes)
       @name = name
       @tags = [:optimize, :fixme, :todo]
-      yield self
+      yield self if block_given?
       define
     end
 
