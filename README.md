@@ -15,7 +15,7 @@ The output looks like this:
     ./lib/my_model.rb:
       * [ 17] [TODO] Find the thing
 
-If this looks familiar from Rails, it's because Annotations is derived/forked from the annotations code in Rails 3.2.1, now extracted into its own gem so it can be used in non-Rails (or even non-Ruby) projects.
+Annotations is a standalone library derived from the notes tasks in Rails 3.2.1, extracted into its own gem so it can be used in non-Rails (or even non-Ruby) projects.
 
 Annotations looks for TODO, FIXME, and OPTIMIZE comments in the following kinds of source code files:
 
