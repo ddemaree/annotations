@@ -2,16 +2,18 @@
 
 Extracts and displays annotations from source code comments like these:
 
-  class MyModel
-    def find(id)
-      # TODO: Find the thing
-    end
+```ruby
+class MyModel
+  def find(id)
+    # TODO: Find the thing
   end
+end
+```
 
 The output looks like this:
 
-  ./lib/my_model.rb:
-    * [ 17] [TODO] Find the thing
+    ./lib/my_model.rb:
+      * [ 17] [TODO] Find the thing
 
 If this looks familiar from Rails, it's because Annotations is derived/forked from the annotations code in Rails 3.2.1, now extracted into its own gem so it can be used in non-Rails (or even non-Ruby) projects.
 
@@ -87,11 +89,21 @@ You can also set the default tag list when defining the task, using this block s
 
 ```ruby
 Annotations::RakeTask.new do |t|
-  # This will add an additional 'WTF' annotation; it will be included in 
+  # This will add an additional 'WTF' annotation; it will be included in
   # `rake notes`, and a `rake notes:wtf` task will be added
   t.tags = [:fixme, :optimize, :todo, :wtf]
 end
 ```
+
+Once your `Rakefile` is set up, run the tasks to view your notes:
+
+    rake notes
+
+### Runtime options
+
+**Filter by file extension:** Only display annotations for certain kinds of files. (Thanks for Gabriel Schammah for contributing this feature.)
+
+    rake notes:todo ext=js,rb,coffee
 
 ## Roadmap
 
