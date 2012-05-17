@@ -25,7 +25,7 @@ module Annotations
       # Otherwise the string contains just line and text.
       def to_s(options={})
         s = "[%3d] " % line
-        s << "[#{tag}] " if options[:tag]
+        s << "[#{tag}] " if options[:show_tag]
         s << text
       end
     end
