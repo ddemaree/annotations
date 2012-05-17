@@ -72,12 +72,12 @@ Annotations::RakeTask.new
 
 This will add the following tasks:
 
-  $ bundle exec rake -T notes
-  rake notes                     # Enumerate all annotations
-  rake notes:custom[annotation]  # Enumerate a custom annotation
-  rake notes:fixme               # Enumerate all FIXME annotations
-  rake notes:optimize            # Enumerate all OPTIMIZE annotations
-  rake notes:todo                # Enumerate all TODO annotations
+    $ bundle exec rake -T notes
+    rake notes                     # Enumerate all annotations
+    rake notes:custom[annotation]  # Enumerate a custom annotation
+    rake notes:fixme               # Enumerate all FIXME annotations
+    rake notes:optimize            # Enumerate all OPTIMIZE annotations
+    rake notes:todo                # Enumerate all TODO annotations
 
 If you want to name the tasks something other than "notes", just pass the name you want to use into `RakeTask.new`:
 
