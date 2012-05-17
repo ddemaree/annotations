@@ -37,14 +37,15 @@ module Annotations
     #
     # This class method is the single entry point for the rake tasks.
     def self.enumerate(tag, options={})
-      extractor = new(tag)
+      extractor = new(tag, options)
       extractor.display(extractor.find, options)
     end
 
     attr_reader :tag
 
-    def initialize(tag)
+    def initialize(tag, options)
       @tag = tag
+      @extensions = options[:extensions]
     end
 
     # Returns a hash that maps filenames under +dirs+ (recursively) to arrays
@@ -63,13 +64,13 @@ module Annotations
     def find_in(dir)
       results = {}
 
-      Dir.glob("#{dir}/*") do |item|
-        next if File.basename(item)[0] == ?.
+      pattern = "#{dir}/**/*"
+      pattern += ".{#{@extensions}}" if @extensions
 
-        if File.directory?(item)
-          results.update(find_in(item))
-        # Ruby source code
-        elsif item =~ /\.(ru|builder|coffee|(r(?:b|xml|js)))$/
+      Dir.glob(pattern) do |item|
+        next if File.basename(item)[0] == ?. or File.directory?(item)
+
+        if item =~ /\.(ru|builder|coffee|(r(?:b|xml|js)))$/
           results.update(extract_annotations_from(item, /#\s*(#{tag}):?\s*(.*)$/))
         # Other Ruby source files (Rake, Bundler)
         elsif item =~ /(Rakefile|Gemfile|Guardfile)$/
