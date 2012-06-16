@@ -14,7 +14,6 @@ module Annotations
   # start with the tag optionally followed by a colon. Everything up to the end
   # of the line (or closing ERB comment tag) is considered to be their text.
   class Extractor
-    # TODO: Test me
     class Annotation < Struct.new(:line, :tag, :text)
 
       # Returns a representation of the annotation that looks like this:
